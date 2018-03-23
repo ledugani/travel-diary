@@ -27,6 +27,13 @@ var destinationCards = [
     }
 ];
 
+let x = "";
+
+const userInput = (input) => {
+    x = document.getElementById("input").value;
+    console.log(x);
+}
+
 const printToDom = (domString, divId) => {
     document.getElementById(divId).innerHTML = domString;
 };
@@ -35,10 +42,10 @@ const buildDomString = (destination) => {
     let domString = '';
     destination.forEach((card) => {
         domString += `<div class="card">`;
-        domString += `<h1>${card.title}</h1>`;
-        domString += `<img src="${card.image}" class="picture">`;
-        domString += `<input type='text' name='${card.description}' value='Type your entry here...'>`;
-        domString += `<button class="card-button">Submit</button>`;
+        domString += `<h1>${card.title}</h1> <br>`;
+        domString += `<img src="${card.image}" class="picture"> <br>`;
+        domString += `<input type='text' id='${card.description}' value='Type your entry here...' class='input'> <br>`;
+        domString += `<input type='submit' class="card-button" value='Submit' onclick='userInput(${card.description})'>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');
