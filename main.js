@@ -59,11 +59,21 @@ const addAllEventListeners = () => {
     }
 };
 
+let userEntries = [];
+
 const printUserInput = (e) => {
     const userInput = e.target.parentNode.children[4].id;
+    const cardTitle = e.target.parentNode.children[0];
+    let newDomString = '';
     if (userInput === 'stthomas') {
-        document.getElementById('entries').innerHTML = document.getElementById('stthomas').value;
+        newDomString = `<div class='entries'>`;
+        // newDomString += `<h2>` + cardTitle + `</h2>`;
+        newDomString += document.getElementById('stthomas').value;
+        newDomString += `</div>`;
     }
+    userEntries.push(newDomString);
+    userEntries.join('');
+    printToDom(userEntries, 'entries');
 };
 
 const startApplication = () => {
