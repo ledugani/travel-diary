@@ -65,16 +65,47 @@ const printUserInput = (e) => {
     const userInput = e.target.parentNode.children[4].id;
     const cardTitle = e.target.parentNode.children[0];
     let newDomString = '';
+    // let diaryNumber = 0;
     if (userInput === 'stthomas') {
+        // diaryNumber += 1;
         newDomString = `<div class='entries'>`;
-        // newDomString += `<h2>` + cardTitle + `</h2>`;
+        // newDomString += `<h1>Journal Entry #${diaryNumber}</h1>`;
+        newDomString += `<h2>St. Thomas, USVI</h2>`;
         newDomString += document.getElementById('stthomas').value;
+        newDomString += `</div>`;
+    } else if (userInput === 'seattle') {
+        newDomString = `<div class='entries'>`;
+        newDomString += `<h2>Seattle, WA</h2>`;
+        newDomString += document.getElementById('seattle').value;
+        newDomString += `</div>`;
+    } else if (userInput === 'lasvegas') {
+        newDomString = `<div class='entries'>`;
+        newDomString += `<h2>Las Vegas, NV</h2>`;
+        newDomString += document.getElementById('lasvegas').value;
+        newDomString += `</div>`;
+    } else if (userInput === 'keywest') {
+        newDomString = `<div class='entries'>`;
+        newDomString += `<h2>Key West, FL</h2>`;
+        newDomString += document.getElementById('keywest').value;
+        newDomString += `</div>`;
+    } else if (userInput === 'phoenix') {
+        newDomString = `<div class='entries'>`;
+        newDomString += `<h2>Phoenix, AZ</h2>`;
+        newDomString += document.getElementById('phoenix').value;
         newDomString += `</div>`;
     }
     userEntries.push(newDomString);
     userEntries.join('');
     printToDom(userEntries, 'entries');
 };
+
+// const clearFields = () => {
+//     document.getElementById("stthomas").value = "";
+//     document.getElementById("seattle").value = "";
+//     document.getElementById("lasvegas").value = "";
+//     document.getElementById("keywest").value = "";
+//     document.getElementById("phoenix").value = "";
+// }
 
 const startApplication = () => {
     buildDomString(destinationCards);

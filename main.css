@@ -18,12 +18,12 @@
 }
 
 .entries {
-    width: 90%;
+    width: 50%;
+    height: auto;
     padding: 25px;
     margin: 25px;
     border: solid black 1px;
-    background-color: #008CBA;
-    text-align: center;
+    background-color: gainsboro;
 }
 
 .flex {
