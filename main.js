@@ -27,13 +27,6 @@ var destinationCards = [
     }
 ];
 
-let x = "";
-
-const userInput = (input) => {
-    x = document.getElementById("input").value;
-    console.log(x);
-}
-
 const printToDom = (domString, divId) => {
     document.getElementById(divId).innerHTML = domString;
 };
@@ -44,11 +37,38 @@ const buildDomString = (destination) => {
         domString += `<div class="card">`;
         domString += `<h1>${card.title}</h1> <br>`;
         domString += `<img src="${card.image}" class="picture"> <br>`;
-        domString += `<input type='text' id='${card.description}' value='Type your entry here...' class='input'> <br>`;
-        domString += `<input type='submit' class="card-button" value='Submit' onclick='userInput(${card.description})'>`;
+        domString += `<input type='text' id='${card.description}' placeholder='Type your entry here...' class='input'> <br>`;
+        domString += `<input type='submit' id='submit-button' class="card-button" value='Submit'>`;
         domString += `</div>`;
     });
     printToDom(domString, 'card-holder');
 }
 
-buildDomString(destinationCards);
+// const showInput = () => {
+//     const submitButton = document.getElementById('submit-button');
+//     submitButton.addEventListener('click', (e) => {
+//         // document.getElementById('entries').innerHTML = document.getElementsByClassName('input').value;
+//         console.log("hello");
+//     })
+// }
+
+const addAllEventListeners = () => {
+    const allTheButtons = document.getElementsByClassName('card-button');
+    for (let i = 0; i < allTheButtons.length; i++) {
+        allTheButtons[i].addEventListener('click', printUserInput);
+    }
+};
+
+const printUserInput = (e) => {
+    const userInput = e.target.parentNode.children[4].id;
+    if (userInput === 'stthomas') {
+        document.getElementById('entries').innerHTML = document.getElementById('stthomas').value;
+    }
+};
+
+const startApplication = () => {
+    buildDomString(destinationCards);
+    addAllEventListeners();
+};
+
+startApplication();

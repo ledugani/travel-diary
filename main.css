@@ -17,6 +17,15 @@
     text-align: center;
 }
 
+.entries {
+    width: 90%;
+    padding: 25px;
+    margin: 25px;
+    border: solid black 1px;
+    background-color: #008CBA;
+    text-align: center;
+}
+
 .flex {
     display: flex;
     flex-wrap: wrap;
