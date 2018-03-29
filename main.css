@@ -8,8 +8,8 @@
 }
 
 .card {
-    width: 40%;
-    height: 500px;
+    width: auto;
+    height: auto;
     padding: 25px;
     margin: 25px;
     border: solid #008CBA 1px;
@@ -27,8 +27,9 @@
 }
 
 .flex {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: center;
 }
 
